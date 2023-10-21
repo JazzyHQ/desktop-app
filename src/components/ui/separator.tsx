@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable import/prefer-default-export */
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
 import * as React from 'react';
@@ -7,9 +8,9 @@ import { cn } from '~/lib/utils';
 const Separator = React.forwardRef<
   React.ElementRef<typeof SeparatorPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> & {
-    className: string;
-    orientation: string;
-    decorative: boolean;
+    className?: string;
+    orientation?: string;
+    decorative?: boolean;
   }
 >(
   (
