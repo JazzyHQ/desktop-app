@@ -19,5 +19,6 @@
     "allowJs": true,
     "outDir": ".erb/dll"
   },
+  "include": [".erb/scripts/jest-setup.ts", "**/*"],
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }
