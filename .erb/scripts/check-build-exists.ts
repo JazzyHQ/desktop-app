@@ -7,7 +7,7 @@ import webpackPaths from '../configs/webpack.paths';
 const mainPath = path.join(webpackPaths.distMainPath, 'main.js');
 const rendererPath = path.join(
   webpackPaths.distRendererPath,
-  'renderer.renderer.js'
+  'app.renderer.js'
 );
 
 if (!fs.existsSync(mainPath)) {
