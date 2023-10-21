@@ -5,6 +5,7 @@
     "module": "commonjs",
     "lib": ["dom", "es2021"],
     "jsx": "react-jsx",
+    "skipLibCheck": true,
     "strict": true,
     "sourceMap": true,
     "baseUrl": "./src",
