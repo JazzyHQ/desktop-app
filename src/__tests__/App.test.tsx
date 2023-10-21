@@ -1,9 +1,16 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import App from '../renderer/App';
+import userEvent from '@testing-library/user-event';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+
+import { routes } from '../renderer/App';
 
 describe('App', () => {
   it('should render', () => {
-    expect(render(<App />)).toBeTruthy();
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/'],
+    });
+    userEvent.setup();
+    expect(render(<RouterProvider router={router} />)).toBeTruthy();
   });
 });
