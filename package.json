@@ -135,7 +135,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@electron/notarize": "^1.2.3",
+    "@electron/notarize": "^2.1.0",
     "@electron/rebuild": "^3.2.13",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
     "@svgr/webpack": "^8.0.1",
@@ -220,7 +220,7 @@
   },
   "build": {
     "productName": "Jazzy",
-    "appId": "org.com.jazzyhq.Jazzy",
+    "appId": "com.jazzyhq.Jazzy",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
