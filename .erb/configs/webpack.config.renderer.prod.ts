@@ -117,6 +117,7 @@ const configuration: webpack.Configuration = {
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
       DEBUG_PROD: false,
+      BASE_BACKEND_URL: 'https://app.jazzyhq.com',
     }),
 
     new MiniCssExtractPlugin({

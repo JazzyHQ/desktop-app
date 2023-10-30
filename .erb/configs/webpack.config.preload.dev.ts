@@ -48,6 +48,7 @@ const configuration: webpack.Configuration = {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      BASE_BACKEND_URL: 'http://localhost:8001',
     }),
 
     new webpack.LoaderOptionsPlugin({
@@ -104,6 +105,7 @@ const workSchedulerConfiguration: webpack.Configuration = {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      BASE_BACKEND_URL: 'http://localhost:8001',
     }),
 
     new webpack.LoaderOptionsPlugin({
@@ -160,6 +162,7 @@ const workerConfiguration: webpack.Configuration = {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      BASE_BACKEND_URL: 'http://localhost:8001',
     }),
 
     new webpack.LoaderOptionsPlugin({

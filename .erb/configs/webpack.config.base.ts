@@ -52,6 +52,7 @@ const configuration: webpack.Configuration = {
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
+      BASE_BACKEND_URL: 'https://app.jazzyhq.com',
     }),
   ],
 };

@@ -60,6 +60,7 @@ const configuration: webpack.Configuration = {
      */
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+      BASE_BACKEND_URL: 'http://localhost:8001',
     }),
 
     new webpack.LoaderOptionsPlugin({
