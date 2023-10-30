@@ -88,7 +88,7 @@ export default class MainProcessManager {
       { type: 'separator' },
       { label: 'Exit', type: 'normal', click: () => app.quit() },
     ]);
-    tray.setToolTip('This is my application.');
+    tray.setToolTip('Jazzy');
     tray.setContextMenu(contextMenu);
   }
 

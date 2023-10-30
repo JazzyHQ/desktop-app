@@ -22,6 +22,7 @@ import { Toaster } from '~/components/ui/toaster';
 import { ONE_MINUTES_IN_MS } from '~/constants';
 import { classNames } from '~/lib/utils';
 import queries from '~/queries';
+import logo from '../../../assets/icons/128x128.png';
 
 interface AuthContextType {
   user: IUserModel | null;
@@ -211,37 +212,23 @@ export default function AuthenticatedLayout() {
     <AuthProvider>
       <Toaster />
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-indigo-600">
+        <Disclosure
+          as="nav"
+          className="bg-slate-500"
+          style={{
+            '-webkit-app-region': 'drag',
+          }}
+        >
           {({ open }) => (
             <>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300"
-                        alt="Your Company"
-                      />
+                      <img className="h-8 w-8" src={logo} alt="Jazzy" />
                     </div>
                     <div className="hidden sm:block">
-                      <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <NavLink
-                            key={item.name}
-                            to={item.href}
-                            className={classNames(
-                              item.current
-                                ? 'bg-indigo-700 text-white'
-                                : 'text-white hover:bg-indigo-500 hover:bg-opacity-75',
-                              'rounded-md px-3 py-2 text-sm font-medium'
-                            )}
-                            aria-current={item.current ? 'page' : undefined}
-                          >
-                            {item.name}
-                          </NavLink>
-                        ))}
-                      </div>
+                      <div className="ml-10 flex items-baseline space-x-4" />
                     </div>
                   </div>
 
