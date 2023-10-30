@@ -216,7 +216,8 @@ export default function AuthenticatedLayout() {
           as="nav"
           className="bg-slate-500"
           style={{
-            '-webkit-app-region': 'drag',
+            WebkitAppRegion: 'drag',
+            ...({} as any),
           }}
         >
           {({ open }) => (
