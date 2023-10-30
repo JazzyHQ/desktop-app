@@ -31,8 +31,11 @@ function registerCallback(e: string, callback: CallbackFunctionType) {
 }
 
 const electronHandler = {
-  baseAPIURL: process.env.BASE_API_URL || 'http://localhost:8001/api',
-  loginUrl: process.env.LOGIN_URL || 'http://localhost:8001/desktop/login/',
+  baseAPIURL:
+    `${process.env.BASE_BACKEND_URL}/api` || 'http://localhost:8001/api',
+  loginUrl:
+    `${process.env.BASE_BACKEND_URL}/desktop/login/` ||
+    'http://localhost:8001/desktop/login/',
   onLogin(callback: LoginCallback) {
     ipcRenderer.on('auth:login', callback);
     return () => {
