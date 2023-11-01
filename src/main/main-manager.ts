@@ -160,7 +160,6 @@ export default class MainProcessManager {
   public async createMainWindow() {
     this.mainWindow = new BrowserWindow({
       show: false,
-      frame: false,
       width: 800,
       height: 600,
       icon: MainProcessManager.getAssetPath('icon.png'),
