@@ -70,7 +70,7 @@ export default class MainProcessManager {
 
   public async createTrayMenu() {
     const tray = new Tray(
-      MainProcessManager.getAssetPath('icons', 'trayTemplate@2x.png')
+      MainProcessManager.getAssetPath('icons', 'trayTemplate.png')
     );
     const contextMenu = Menu.buildFromTemplate([
       {
