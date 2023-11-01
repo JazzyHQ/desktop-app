@@ -81,20 +81,26 @@ export default class DBService {
   }
 
   // eslint-disable-next-line class-methods-use-this
+  private escapeString(str: string) {
+    return `${str.replace(/'/g, "''")}`;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
   public async searchForDataNodes(searchTerm: string) {
     if (!searchTerm) return [];
     let matchingDocs: { rowid: number }[] = [];
+    const escapedSearchTerm = this.escapeString(searchTerm);
 
     if (searchTerm.length < 3) {
       matchingDocs = this.dbClient.connection.all<{ rowid: number }>(
         sql.raw(
-          `select rowid from search_idx WHERE name LIKE '%${searchTerm}%' or description LIKE '%${searchTerm}%' ORDER BY rank;`
+          `select rowid from search_idx WHERE name LIKE '%${escapedSearchTerm}%' or description LIKE '%${escapedSearchTerm}%' ORDER BY rank;`
         )
       );
     } else {
       matchingDocs = this.dbClient.connection.all<{ rowid: number }>(
         sql.raw(
-          `select rowid from search_idx WHERE search_idx MATCH '"${searchTerm}"' ORDER BY rank`
+          `select rowid from search_idx WHERE search_idx MATCH '"${escapedSearchTerm}"' ORDER BY rank`
         )
       );
     }
