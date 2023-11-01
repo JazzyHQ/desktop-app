@@ -34,7 +34,7 @@ export default function Login() {
             Welcome to Jazzy
           </h1>
           <h2 className="mt-4 text-2xl tracking-tight text-gray-900 sm:text-4xl">
-            To use the application, please sign into your Jazzy account.
+            To use the application, please sign in to your Jazzy account.
           </h2>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
