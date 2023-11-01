@@ -128,7 +128,7 @@ export default class MainProcessManager {
     this.commandPallet = new BrowserWindow({
       show: false,
       frame: false,
-      resizable: true,
+      resizable: process.env.NODE_ENV !== 'production',
       alwaysOnTop: true,
       width: 700,
       height: 175,
@@ -160,6 +160,7 @@ export default class MainProcessManager {
   public async createMainWindow() {
     this.mainWindow = new BrowserWindow({
       show: false,
+      resizable: process.env.NODE_ENV !== 'production',
       width: 800,
       height: 600,
       icon: MainProcessManager.getAssetPath('icon.png'),
