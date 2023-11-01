@@ -22,11 +22,12 @@ export default function QuickActionCommandItem({
   const queryClient = useQueryClient();
 
   const quickActionMutation = useMutation({
-    mutationFn: async () => {
+    mutationFn: async (data: { input: string }) => {
+      console.log('Input', data);
       return window.electron.executeCommand(
         new ExecuteQuickActionCommand({
           quickAction,
-          input: searchComponents.documentSearch,
+          input: data.input,
         })
       );
     },
@@ -38,19 +39,22 @@ export default function QuickActionCommandItem({
       {...props}
       onSelect={async () => {
         if (
-          searchComponents.quickActionSearch === null ||
-          searchComponents.quickActionSearch?.length === 0
+          searchComponents.documentSearch === null ||
+          searchComponents.documentSearch.length === 0
         ) {
           toast.error('Contents can not be empty');
           return;
         }
-        quickActionMutation.mutateAsync(undefined, {
-          onSuccess: () => {
-            changeSearchInputValue('');
-            queryClient.invalidateQueries({ queryKey: ['search'] });
-            toast.success('Success!');
-          },
-        });
+        quickActionMutation.mutateAsync(
+          { input: searchComponents.documentSearch },
+          {
+            onSuccess: () => {
+              changeSearchInputValue('');
+              queryClient.invalidateQueries({ queryKey: ['search'] });
+              toast.success('Success!');
+            },
+          }
+        );
       }}
     />
   );
