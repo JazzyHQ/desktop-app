@@ -76,8 +76,6 @@ export function JiraConnect() {
         url,
       };
 
-      console.log('Creating Jira connection... extra: ', extra);
-
       await window.electron.executeCommand(
         new UpdateCloudAppAccountCommand({
           shortCode: CloudAppType.JIRA,
@@ -87,6 +85,10 @@ export function JiraConnect() {
       );
     },
   });
+
+  const onCancel = useCallback(() => {
+    navigate('/');
+  }, [navigate]);
 
   const onSubmit = useCallback(
     async (data: z.infer<typeof FormSchema>) => {
@@ -256,7 +258,12 @@ export function JiraConnect() {
         )}
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
-          <Button disabled={isSubmitting} type="reset" variant="ghost">
+          <Button
+            disabled={isSubmitting}
+            type="reset"
+            variant="ghost"
+            onClick={onCancel}
+          >
             Never mind...
           </Button>
           <Button disabled={isSubmitting} type="submit">
