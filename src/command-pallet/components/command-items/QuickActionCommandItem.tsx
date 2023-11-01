@@ -23,7 +23,6 @@ export default function QuickActionCommandItem({
 
   const quickActionMutation = useMutation({
     mutationFn: async (data: { input: string }) => {
-      console.log('Input', data);
       return window.electron.executeCommand(
         new ExecuteQuickActionCommand({
           quickAction,
